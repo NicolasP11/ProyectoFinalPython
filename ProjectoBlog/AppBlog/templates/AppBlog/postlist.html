@@ -1,0 +1,33 @@
+{% extends "AppBlog/base.html" %}
+
+{% load static %}
+
+{% block main %}
+<table>
+    <div class="row">
+        {% for post in object_list %}
+    
+            <div class="card" style="width: 18rem;" >
+                {% if post.imagenPost %}
+                    <p><img src="{{post.imagenPost.url}}" class="card-img-top" alt=""></p>
+                {% endif %}
+                
+                <div class="card-body">
+                <p class="card-text">{{post.fechaPublicacion}}</p>
+                <h5 class="card-title">{{ post.titulo }}</h5>
+                <a href="{% url 'PostDetail' post.id %}" class="btn btn-primary">Ver</a>
+                {% if user.is_authenticated and user == post.usuario %}
+                    <a href="{% url 'PostEdit' post.id %}">Editar</a>
+                    <a href="{% url 'PostDelete' post.id %}">Borrar</a>
+                {% endif %}
+
+                </div>
+            </div>
+           
+     
+        {% endfor %}
+    </div>
+</table>
+
+
+{% endblock%}

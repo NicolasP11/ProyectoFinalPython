@@ -1,0 +1,29 @@
+{% extends "AppBlog/base.html" %}
+
+{% load static %}
+
+{% block title %} Crear Post {% endblock title%}
+
+{% block main %}
+<br>
+
+<div class="container">
+    <h1 class="text-center">Crea un nuevo post</h1>
+<div class="form-group">
+<form style=" width: 50vw; margin-left : 15vw;" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    
+    <div class="container">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+</form>
+</div>
+</div>
+
+<br>
+<br>
+
+{% endblock main %}

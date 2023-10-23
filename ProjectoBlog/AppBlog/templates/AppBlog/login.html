@@ -1,0 +1,27 @@
+{% extends "AppBlog/base.html" %}
+
+{% load static %}
+
+{% block title %} Login {% endblock title%}
+
+{% block main %}
+
+<div class="d-flex justify-content-center">
+
+    <div class="d-flex flex-column">
+
+        <p class="fs-5 fw-bold">{{ msg_login }}</p>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            
+            <button style="margin-left: 120px; margin-bottom: 10px; margin-top: 10px;" type="submit">Iniciar sesion</button>
+
+        </form>
+
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,25 @@
+{% extends "AppBlog/base.html" %}
+
+{% load static %}
+
+{% block title %} VideoGamesBlog {% endblock title%}
+
+{% block main %}
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{posts.titulo}}</h4></p>
+
+{% if posts.imagenPost %}
+    <p><img src="{{posts.imagenPost.url}}" alt=""></p>
+{% endif %}
+<p>{{posts.descripcion}}</p>
+<p>{{posts.email}}</p>
+<p>{{posts.fechaPublicacion}}</p>
+<p>Publicado por: {{ author_name }}</p>
+<button type="button" class="btn btn-dark"><a href="{% url 'Postlist' %}">Regresar</a></button>
+</div>
+
+{% endblock%}
